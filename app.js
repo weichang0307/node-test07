@@ -1,10 +1,15 @@
-const http =require("http");
-const server =http.createServer((request,response)=>{
-    response.end("hello")
+var express = require('express');
+var app = express();
 
+app.get('/', function (req, res) {
+   res.send('Hello World');
 })
-const port=3000
-const ip="127.0.0.1"
-server.listen(port,ip,()=>{
-    console.log('start')
+
+var server = app.listen(8081, function () {
+
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log("Example app listening at http://%s:%s", host, port)
+
 })
